@@ -3,12 +3,13 @@
 
 
 class Animal {
-  static alive = [];
+  static totalList = [];
+  static alive = totalList.filter(animal => animal.health > 0);
 
   constructor(name, health = 100) {
     this.name = name;
     this.health = health;
-    Animal.alive.push(this);
+    Animal.totalList.push(this);
   }
 }
 
@@ -31,10 +32,6 @@ class Carnivore extends Animal {
   bite(target) {
     if (target instanceof Herbivore && target.hidden === false) {
       target.health -= 50;
-
-      if (target.health <= 0) {
-        Animal.alive.delete(target);
-      }
     }
   }
 }
