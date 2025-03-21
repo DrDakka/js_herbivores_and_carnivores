@@ -1,7 +1,5 @@
 'use strict';
 
-
-
 class Animal {
   static totalList = [];
   static alive = totalList.filter(animal => animal.health > 0);
